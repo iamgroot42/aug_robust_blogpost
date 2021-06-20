@@ -1,3 +1,9 @@
+# Repo-specific stuff
+models/*
+data/*
+.vscode/*.json
+metrics/*
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
