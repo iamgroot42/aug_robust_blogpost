@@ -1,4 +1,4 @@
-# aug_robust_blogpost
+# Experiments for blog post 'Reassessing adversarial training with fixed data augmentation'
 
 ## Setup
 
@@ -10,7 +10,7 @@ cd robustness
 python setup.py install
 ```
 
-## Experiments
+## Training models
 
 1. Model without data-augmentation
 
@@ -29,3 +29,9 @@ python setup.py install
     ```bash
     python -m robustness.main --dataset cifar --data data/ --arch resnet50 --out-dir models/ --exp-name standard_fixed_aug --data-aug 1 --adv-train 0 --better_init 1
     ```
+
+## Evaluating models
+
+```bash
+    python -m robustness.main --dataset cifar --data data/ --arch resnet50 --out-dir evals/ --attack-steps 20 --constraint inf --eps 8/255 --attack-lr 20/5100 --resume models/robust_fixed_aug/checkpoint.pt.best --eval-only 1 --adv-eval 1
+```
